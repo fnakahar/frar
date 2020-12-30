@@ -1,0 +1,19 @@
+@import "bootstrap";
+
+.jumbotron-extend {
+  position: relative;
+  height: 100vh;
+  min-height: 300px;
+  background: url(Frarimages/top_screen.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.jumbotron-container {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: black;
+}

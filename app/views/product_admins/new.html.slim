@@ -1,0 +1,15 @@
+.jumbotron
+  h1.display-3 製品登録.a NEW
+  p.lead 製品の新規登録を行います
+
+  .nav.justify-content-end
+    = link_to '登録一覧', product_admins_path, class: 'btn btn-outline-primary mr-3'
+
+  = form_for @product do |f|
+    .form-group
+      = f.label :product_name
+      = f.text_field :name, class: 'form-control', id: 'product_name'
+    .form-group
+      = f.label :product_subtitle
+      = f.text_field :product_subtitle, class: 'form-control', id: 'product_subtitle'
+    = f.submit '登録', class: 'btn btn-outline-primary'

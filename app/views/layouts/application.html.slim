@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title
+      | FRAR
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body[style="padding-top:40px"]
+    .app-title.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top[style="height: 90px;" ]
+      = link_to root_path
+        .navbar-brand
+          = image_tag "Frarimages/frar_logo.png"
+
+      .collapse.navbar-collapse.flex-column.ml-lg-0.ml-3
+        ul.navbar-nav.ml-auto
+          li.nav-item= link_to '言語切り替え', "#", class: 'nav-link'
+          li.nav-item= link_to 'お問い合わせ', "#", class: 'nav-link'
+          li.nav-item= link_to '製品登録.a', product_admins_path, class: 'nav-link'
+          li.nav-item= link_to 'ログイン', "#", class: 'nav-link'
+          li.nav-item= link_to 'ログアウト', "#", class: 'nav-link'
+
+        ul.navbar-nav.ml-auto.flex-row.mb-2.
+          li.nav-item= link_to 'サイトトップ', "#", class: 'nav-link'
+          li.nav-item= link_to '取り扱い製品一覧', "#", class: 'nav-link'
+          li.nav-item= link_to 'オンラインカウンセリング予約', "#", class: 'nav-link'
+          li.nav-item= link_to 'チャットルーム', "#", class: 'nav-link'
+          li.nav-item= link_to 'ユーザー登録', "#", class: 'nav-link'
+          li.nav-item= link_to 'FRARについて', "#", class: 'nav-link'
+
+    .container
+    = yield
+
+
