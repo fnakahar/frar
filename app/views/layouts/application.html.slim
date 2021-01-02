@@ -7,7 +7,7 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body[style="padding-top:40px"]
+  body[style="padding-top:90px"]
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top[style="height: 90px;" ]
       = link_to root_path
         .navbar-brand
@@ -30,6 +30,17 @@ html
           li.nav-item= link_to 'FRARについて', "#", class: 'nav-link'
 
     .container
+      - if flash.notice.present?
+        .alert.alert-success[role="alert"]= flash.notice
+        / .alert-successはbootstrapのクラスで、flashメッセージを緑帯背景色で表示するように指示している。
+      - if flash.alert.present?
+        .alert.alert-danger[role="alert"]= flash.alert
+
     = yield
+
+    javascript:
+        $(function () {
+            $(".alert").fadeOut(3000);
+        });
 
 

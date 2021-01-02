@@ -1,2 +1,55 @@
-h1 ProdctAdmins#show
-p Find me in app/views/product_admins/show.html.slim
+.jumbotron
+  h1.display-3 製品登録.a 製品詳細
+  p.lead 選択された製品の詳細を表示しています。
+
+.nav.justify-content-end
+  = link_to '登録一覧', product_admins_path, class: 'btn btn-outline-primary mr-3'
+
+.mt-3
+table.table.table-striped.table-hover
+  tbody
+    tr
+      th = Product.human_attribute_name(:id)
+      td = @product.id
+    tr
+       th = Product.human_attribute_name(:product_image)
+       td = image_tag @product.product_image.url
+    tr
+      th = Product.human_attribute_name(:product_name)
+      td = @product.product_name
+    tr
+      th = Product.human_attribute_name(:product_subtitle)
+      td = @product.product_subtitle
+    tr
+      th = Product.human_attribute_name(:product_hl_description)
+      td = @product.product_hl_description
+    tr
+      th = Product.human_attribute_name(:product_ll_description)
+      td = simple_format(h(@product.product_ll_description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th = Product.human_attribute_name(:product_rating)
+      td = @product.product_rating
+    tr
+      th = Product.human_attribute_name(:frar_comment)
+      td = simple_format(h(@product.frar_comment), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th = Product.human_attribute_name(:product_price)
+      td = @product.product_price
+    tr
+      th = Product.human_attribute_name(:review_title)
+      td = @product.review_title
+    tr
+      th = Product.human_attribute_name(:review_content)
+      td = simple_format(h(@product.review_content), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th = Product.human_attribute_name(:product_category)
+      td = @product.product_category
+    tr
+      th = Product.human_attribute_name(:created_at)
+      td = @product.created_at
+    tr
+      th = Product.human_attribute_name(:updated_at)
+      td = @product.updated_at
+
+= link_to '編集', edit_product_admin_path(@product), class: 'btn btn-primary ml-3 mr-3'
+= link_to '削除', product_admin_path(@product), method: :delete, data: { confirm: "製品名「#{@product.product_name}」を削除します。よろしいですか？" }, class: 'btn btn-danger '

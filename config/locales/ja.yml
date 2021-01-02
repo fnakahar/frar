@@ -7,23 +7,24 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
     models:
       product: 製品
     attributes:
-      product_name: 製品名
-      product_subtitle: 製品サブタイトル
-      product_image: 製品画像
-      product_hl_description: 製品概要
-      product_ll_description: 製品詳細
-      product_rating: ５段階評価
-      frar_comment: FRAR感想
-      product_price: 製品価格
-      review_title: 口コミタイトル
-      review_content: 口コミ内容
-      created_at: 登録日時
-      updated_at: 更新日時
-      product_category: 製品分類
+#      翻訳情報を書くところは一段インデント下げてください
+      product:
+        product_name: 製品名
+        product_subtitle: 製品サブタイトル
+        product_image: 製品画像
+        product_hl_description: 製品概要
+        product_ll_description: 製品詳細
+        product_rating: ５段階評価
+        frar_comment: FRAR感想
+        product_price: 製品価格
+        review_title: 口コミタイトル
+        review_content: 口コミ内容
+        created_at: 登録日時
+        updated_at: 更新日時
+        product_category: 製品分類
 
   date:
     abbr_day_names:

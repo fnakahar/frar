@@ -2,14 +2,45 @@
   h1.display-3 製品登録.a NEW
   p.lead 製品の新規登録を行います
 
-  .nav.justify-content-end
-    = link_to '登録一覧', product_admins_path, class: 'btn btn-outline-primary mr-3'
+.nav.justify-content-end
+  = link_to '登録一覧', product_admins_path, class: 'btn btn-outline-primary mr-3'
 
-  = form_for @product do |f|
+  / form_forは、フォームの送信先としてデフォルトで@productからproduct_path(create) をやろうとする。
+  /でも今回は、コントローラー名とモデル名が違うのでproduct_admins_path(create)として正しく送り先を明示しないといけない。
+.ml-3.mr-3
+  = form_for @product, url: product_admins_path do |f|
+    .form-group
+      = f.label :product_image
+      = f.file_field :product_image, class: 'form-control', id: 'product_image'
     .form-group
       = f.label :product_name
-      = f.text_field :name, class: 'form-control', id: 'product_name'
+      = f.text_field :product_name, class: 'form-control', id: 'product_name'
     .form-group
       = f.label :product_subtitle
       = f.text_field :product_subtitle, class: 'form-control', id: 'product_subtitle'
-    = f.submit '登録', class: 'btn btn-outline-primary'
+    .form-group
+      = f.label :product_hl_description
+      = f.text_area :product_hl_description, class: 'form-control', id: 'product_hl_description'
+    .form-group
+      = f.label :product_ll_description
+      = f.text_area :product_ll_description, class: 'form-control', id: 'product_ll_description'
+    .form-group
+      = f.label :product_rating
+      = f.text_field :product_rating, class: 'form-control', id: 'product_rating'
+    .form-group
+      = f.label :frar_comment
+      = f.text_area :frar_comment, class: 'form-control', id: 'frar_comment'
+    .form-group
+      = f.label :product_price
+      = f.text_field :product_price, class: 'form-control', id: 'product_price'
+    .form-group
+      = f.label :review_title
+      = f.text_field :review_title, class: 'form-control', id: 'review_title'
+    .form-group
+      = f.label :review_content
+      = f.text_area :review_title, class: 'form-control', id: 'review_content'
+    .form-group
+      = f.label :product_category
+      = f.text_field :product_category, class: 'form-control', id: 'product_category'
+
+    = f.submit nil , class: 'btn btn-outline-primary'

@@ -2,5 +2,20 @@
   h1.display-3 製品登録.a INDEX
   p.lead 登録済みの製品を一覧表示しています
 
+
 = link_to '新規登録', new_product_admin_path, class: 'btn btn-outline-primary ml-3'
 
+.mt-3
+table.table.table-striped.table-hover.ml-3
+  thead.thead-default
+    tr
+      th = Product.human_attribute_name(:product_name)
+      th = Product.human_attribute_name(:created_at)
+      th
+    tbody
+      - @product.each do |product|
+        tr
+          td = link_to product.product_name, product_admin_path(product)
+          td = product.created_at
+          td = link_to '編集', edit_product_admin_path(product), class: 'btn btn-primary mr-3 float-right'
+          td = link_to '削除', product_admin_path(product), method: :delete, data: { confirm: "製品名「#{product.product_name}」を削除します。よろしいですか？" }, class: 'btn btn-danger '
