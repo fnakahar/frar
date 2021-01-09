@@ -23,24 +23,32 @@ html
 
         ul.navbar-nav.ml-auto.flex-row.mb-2.
           li.nav-item= link_to 'サイトトップ', "#", class: 'nav-link'
-          li.nav-item= link_to '取り扱い製品一覧', "#", class: 'nav-link'
+          li.nav-item= link_to '取り扱い製品一覧', product_users_path, class: 'nav-link'
           li.nav-item= link_to 'オンラインカウンセリング予約', "#", class: 'nav-link'
           li.nav-item= link_to 'チャットルーム', "#", class: 'nav-link'
           li.nav-item= link_to 'ユーザー登録', "#", class: 'nav-link'
           li.nav-item= link_to 'FRARについて', "#", class: 'nav-link'
 
-    .container
-      - if flash.notice.present?
-        .alert.alert-success[role="alert"]= flash.notice
-        / .alert-successはbootstrapのクラスで、flashメッセージを緑帯背景色で表示するように指示している。
-      - if flash.alert.present?
-        .alert.alert-danger[role="alert"]= flash.alert
 
+
+  .container-fluid
+    - if flash.notice.present?
+      .alert.alert-success[role="alert"]= flash.notice
+      / .alert-successはbootstrapのクラスで、flashメッセージを緑帯背景色で表示するように指示している。
+    - if flash.alert.present?
+      .alert.alert-danger[role="alert"]= flash.alert
+
+    / 以下、yieldとjavascriptの関係はインデントを含め重要
     = yield
 
     javascript:
         $(function () {
             $(".alert").fadeOut(3000);
         });
+
+
+
+
+
 
 

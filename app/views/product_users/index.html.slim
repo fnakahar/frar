@@ -1,0 +1,162 @@
+h2.mt-5.ml-3.mr-3.border-bottom.border-info 取り扱い製品一覧
+p.mt-3.ml-3 商品カウンセリングが可能なSPTM美容製品のラインナップです
+
+/ カード＆タブ型ナビゲーションの定義
+.card.ml-3.mr-3
+  .card-header
+    ul#myTab.nav.nav-tabs.card-header-tabs[role="tablist"]
+      li.nav-item
+        a#althaeaoio-tab.nav-link.active[data-toggle="tab" href="#althaeaoio" role="tab" aria-controls="althaeaoio" aria-selected="true"]
+          | エルテオ
+      li.nav-item
+        a#altvenus-tab.nav-link[data-toggle="tab" href="#altvenus" role="tab" aria-controls="altvenus" aria-selected="false"]
+          | エルヴィナス
+      li.nav-item
+        a#reandna-tab.nav-link[data-toggle="tab" href="#reandna" role="tab" aria-controls="reandna" aria-selected="false"]
+          | リアンディーナ
+      li.nav-item
+        a#bsodin-tab.nav-link[data-toggle="tab" href="#bsodin" role="tab" aria-controls="bsodin" aria-selected="false"]
+          | ビーソディン
+      li.nav-item
+        a#appb-tab.nav-link[data-toggle="tab" href="#appb" role="tab" aria-controls="appb" aria-selected="false"]
+          | アプローチX アップビー
+      li.nav-item
+        a#mirus-tab.nav-link[data-toggle="tab" href="#mirus" role="tab" aria-controls="mirus" aria-selected="false"]
+          | ミラス
+
+      / サンプル出力用タブ定義
+      li.nav-item
+        a#sample-tab.nav-link[data-toggle="tab" href="#sample" role="tab" aria-controls="sample" aria-selected="false"]
+          | Sample
+
+
+    / ここから、タブ内繰り返し制御
+    #myTabContent.tab-content.card-deck
+      #althaeaoio.tab-pane.fade.show.active[role="tabpanel" aria-labelledby="althaeaoio-tab"]
+        - @product_althaeaoio.each_slice(3) do |products|
+          .row.mb-3.mt-4
+            - products.each do |product|
+              .card.col-auto
+                = image_tag product.product_image.url, class: "card-img-top"
+                .card-body
+                  h4.card-title
+                    | #{product.product_name}
+                  h6.card-subtitle.text-muted
+                    | #{product.product_subtitle}
+                  p.card-text
+                    | #{product.product_hl_description}
+                = link_to '製品詳細', product_user_path(product), class: 'btn btn-primary mb-3'
+
+      #altvenus.tab-pane.fade.show[role="tabpanel" aria-labelledby="altvenus-tab"]
+        - @product_altvenus.each_slice(3) do |products|
+          .row.mb-3.mt-4
+            - products.each do |product|
+              .card.col-auto
+                = image_tag product.product_image.url, class: "card-img-top"
+                .card-body
+                  h4.card-title
+                    | #{product.product_name}
+                  h6.card-subtitle.text-muted
+                    | #{product.product_subtitle}
+                  p.card-text
+                    | #{product.product_hl_description}
+                = link_to '製品詳細', product_user_path(product), class: 'btn btn-primary mb-3'
+
+      #reandna.tab-pane.fade.show[role="tabpanel" aria-labelledby="reandna-tab"]
+        - @product_reandna.each_slice(3) do |products|
+          .row.mb-3.mt-4
+            - products.each do |product|
+              .card.col-sm-4
+                = image_tag product.product_image.url, class: "card-img-top"
+                .card-body
+                  h4.card-title
+                    | #{product.product_name}
+                  h6.card-subtitle.text-muted
+                    | #{product.product_subtitle}
+                  p.card-text
+                    | #{product.product_hl_description}
+                = link_to '製品詳細', product_user_path(product), class: 'btn btn-primary mb-3'
+
+      #bsodin.tab-pane.fade.show[role="tabpanel" aria-labelledby="bsodin-tab"]
+        - @product_bsodin.each_slice(3) do |products|
+          .row.mb-3.mt-4
+            - products.each do |product|
+              .card.col-sm-4
+                = image_tag product.product_image.url, class: "card-img-top"
+                .card-body
+                  h4.card-title
+                    | #{product.product_name}
+                  h6.card-subtitle.text-muted
+                    | #{product.product_subtitle}
+                  p.card-text
+                    | #{product.product_hl_description}
+                = link_to '製品詳細', product_user_path(product), class: 'btn btn-primary mb-3'
+
+      #appb.tab-pane.fade.show[role="tabpanel" aria-labelledby="appb-tab"]
+        - @product_appb.each_slice(3) do |products|
+          .row.mb-3.mt-4
+            - products.each do |product|
+              .card.col-sm-4
+                = image_tag product.product_image.url, class: "card-img-top"
+                .card-body
+                  h4.card-title
+                    | #{product.product_name}
+                  h6.card-subtitle.text-muted
+                    | #{product.product_subtitle}
+                  p.card-text
+                    | #{product.product_hl_description}
+                = link_to '製品詳細', product_user_path(product), class: 'btn btn-primary mb-3'
+
+      #mirus.tab-pane.fade.show[role="tabpanel" aria-labelledby="mirus-tab"]
+        - @product_mirus.each_slice(3) do |products|
+          .row.mb-3.mt-4
+            - products.each do |product|
+              .card.col-sm-4
+                = image_tag product.product_image.url, class: "card-img-top"
+                .card-body
+                  h4.card-title
+                    | #{product.product_name}
+                  h6.card-subtitle.text-muted
+                    | #{product.product_subtitle}
+                  p.card-text
+                    | #{product.product_hl_description}
+                = link_to '製品詳細', product_user_path(product), class: 'btn btn-primary mb-3'
+
+      / 本当はどういう体裁にしたいのか、以下参照のこと
+      #sample.tab-pane.fade[role="tabpanel" aria-labelledby="sample-tab"]
+        .row
+          .card.col-4
+            = image_tag "Frarimages/sptm.png", class: "card-img-top"
+            .card-body
+              h4.card-title
+                | SPTM化粧品１
+              h6.card-subtitle.text-muted
+                | 最高品質の乳液をあなたに
+              p.card-text
+                | SPTMが贈る、あらゆる肌質になじむ毎日使える贅沢な乳液です。毎日頑張るあなたの肌に安らぎと再生を。
+              = link_to '製品詳細', "#", class: 'btn btn-primary'
+          .card.col-4
+            = image_tag "Frarimages/sptm.png", class: "card-img-top"
+            .card-body
+              h4.card-title
+                | SPTM化粧品2
+              h6.card-subtitle.text-muted
+                | 最高品質の乳液をあなたに
+              p.card-text
+                | SPTMが贈る、あらゆる肌質になじむ毎日使える贅沢な乳液です。毎日頑張るあなたの肌に安らぎと再生を。
+              = link_to '製品詳細', "#", class: 'btn btn-primary'
+          .card.col-4
+            = image_tag "Frarimages/sptm.png", class: "card-img-top"
+            .card-body
+              h4.card-title
+                | SPTM化粧3
+              h6.card-subtitle.text-muted
+                | 最高品質の乳液をあなたに
+              p.card-text
+                | SPTMが贈る、あらゆる肌質になじむ毎日使える贅沢な乳液です。毎日頑張るあなたの肌に安らぎと再生を。
+              = link_to '製品詳細', "#", class: 'btn btn-primary'
+
+/ タブの切り替え機能を動かすために必要↓ 本当はapplication.html.slimの方に書くべきなのだろうけど、notieのfadeout機能と両立させられなかった。
+script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+script crossorigin="anonymous" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"

@@ -1,0 +1,51 @@
+h2.mt-5.ml-3.mr-3.border-bottom.border-info #{@product.product_name}
+p.mt-3.ml-3 #{@product.product_hl_description}
+
+.row.mb-3
+  .col-sm-6
+    .card.ml-3.border
+      .card-body.shadow-sm
+        = image_tag @product.product_image.url, class: "card-img"
+
+  .col-sm-6
+    .card.mr-3
+      .card-body
+        h6.card-title
+          | 製品詳細
+        p.card-text
+          | #{@product.product_ll_description}
+        p.card-text
+          | 定価 #{@product.product_price}(税抜) | ※FRAR販売価格は異なります。
+      = link_to 'SPTM | 公式製品ウェブサイト', @product.product_url, class: 'btn btn-primary mb-3 ml-3 mr-3'
+
+.row.mb-3.mt-3.ml-1
+  .col-sm-6
+    .py-4.bg-light
+      h3.text-center.mb-3 FRARスタッフより
+      .card.text-center.text-dark.w-75.mx-auto
+        .card-header.bg-primary.text-white
+          | 私達がこの製品をお勧めする理由
+        .card-body
+          p.card-text.text-justify #{@product.frar_comment}
+        .card-footer.bg-white.text-white
+          = link_to 'この製品のカウンセリングを受けてみる！', @product.product_url, class: 'btn btn-outline-primary'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -25,6 +25,7 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
         product_category: 製品分類
+        product_url: SPTM製品詳細URL
 
   date:
     abbr_day_names:

@@ -7,7 +7,7 @@
 
 / form_forは、フォームの送信先としてデフォルトで@productからproduct_path(create) をやろうとする。
 /でも今回は、コントローラー名とモデル名が違うのでproduct_admins_path(create)として正しく送り先を明示しないといけない。
-.ml-3.mr-3
+.ml-3.mr-3.mb-3
   = form_for @product, url: product_admin_path do |f|
     .form-group
       = f.label :product_image
@@ -42,5 +42,8 @@
     .form-group
       = f.label :product_category
       = f.text_field :product_category, class: 'form-control', id: 'product_category'
+    .form-group
+      = f.label :product_url
+      = f.text_field :product_url, class: 'form-control', id: 'product_url'
 
     = f.submit nil , class: 'btn btn-outline-primary'
