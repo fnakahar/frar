@@ -1,0 +1,43 @@
+.container-fluid.py-4.mw-md.devise-view
+  h1 お客様登録
+
+  / この書き方が神様。エラー出させるためには、form_withの前にこの記述が必要。また、form_withでエラーを表示させるためにはlocal:trueが必要
+  - if @customer.errors.present?
+    ul#error_explanation
+      - @customer.errors.full_messages.each do |message|
+        li = message
+
+  = form_with model: [:admin, @customer], url: admin_customers_path, local: true do |f|
+    .form-group
+      = f.label :name, 'お名前(ニックネーム可)'
+      = f.text_field :name, class: 'form-control', id: 'customer_name'
+    .form-group
+      = f.label :age_range, 'ご年齢', class: 'control-label'
+      = f.select :age_range, ["10代〜20代", "30代〜40代", "50代以上", "未回答"], {}, class: 'form-control', id: 'age_range'
+    .form-group
+      = f.label :gender, '性別', class: 'control-label'
+      = f.select :gender, ["女性", "男性", "未回答"], {}, class: 'form-control', id: 'gender'
+    .form-group
+      = f.label :email, "メールアドレス (ログイン時に使用します)"
+      = f.email_field :email,  class: 'form-control' , id: 'email'
+    .form-group
+      = f.label :password, "パスワード"
+      = f.password_field :password, class: 'form-control' , id: 'password'
+    .form-group
+      = f.label :password_confirmation, "パスワード再確認"
+      = f.password_field :password_confirmation, class: 'form-control', id: 'password_confirmation'
+
+    = f.submit '登録する', class: 'btn btn-primary'
+
+
+
+
+
+
+
+
+
+
+
+
+

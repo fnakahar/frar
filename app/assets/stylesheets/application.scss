@@ -23,3 +23,12 @@ h2 {
   padding-bottom: 7px;
 }
 
+.mw-md {
+  max-width: 576px;
+}
+
+//これ、神表示
+.field_with_errors {
+  background-color: #fcc;
+  padding: 2px;
+}
