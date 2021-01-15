@@ -27,6 +27,13 @@ ja:
         product_category: 製品分類
         product_url: SPTM製品詳細URL
 
+#以下のフォーメーションを厳守
+
+      customer: 顧客
+    attributes:
+      customer:
+        name: お名前
+
   date:
     abbr_day_names:
     - 日
