@@ -32,7 +32,19 @@ ja:
       customer: 顧客
     attributes:
       customer:
+        id: 顧客ID
         name: お名前
+        email: メールアドレス
+        chat_id: チャットルームID
+        recommend: 感想
+        inquiry_id: お問い合わせID
+        event_id: オンラインカウンセリングID
+        age_range: 年代
+        gender: 性別
+        purchase_history_id: 購買履歴ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        admin: 管理者権限
 
   date:
     abbr_day_names:

@@ -1,2 +1,48 @@
-h1 Admin::Customers#show
-p Find me in app/views/admin/customers/show.html.slim
+.jumbotron
+  h1.display-3 顧客管理 詳細情報
+  p.lead 選択された顧客の詳細を表示しています。
+
+.nav.justify-content-end
+  = link_to '顧客一覧', admin_customers_path, class: 'btn btn-outline-primary mr-3'
+
+.mt-3
+table.table.table-striped.table-hover.mb-3
+  tbody
+    tr
+      th = Customer.human_attribute_name(:id)
+      td = @customer.id
+    tr
+      th = Customer.human_attribute_name(:name)
+      td = @customer.name
+    tr
+      th = Customer.human_attribute_name(:email)
+      td = @customer.email
+    tr
+      th = Customer.human_attribute_name(:age_range)
+      td = @customer.age_range
+    tr
+      th = Customer.human_attribute_name(:gender)
+      td = @customer.gender
+    tr
+      th = Customer.human_attribute_name(:chat_id)
+      td = @customer.chat_id
+    tr
+      th = Customer.human_attribute_name(:inquiry_id)
+      td = @customer.inquiry_id
+    tr
+      th = Customer.human_attribute_name(:event_id)
+      td = @customer.event_id
+    tr
+      th = Customer.human_attribute_name(:purchase_history_id)
+      td = @customer.purchase_history_id
+    tr
+      th = Customer.human_attribute_name(:recommend)
+      td = simple_format(h(@customer.recommend), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th = Customer.human_attribute_name(:admin)
+      td = @customer.admin? ? 'あり' : 'なし'
+
+
+= link_to '編集', edit_admin_customer_path(@customer), class: 'btn btn-primary ml-3 mr-3'
+= link_to '削除', admin_customer_path(@customer), method: :delete, data: { confirm: "「#{@customer.name}」様の顧客情報を削除します。よろしいですか？" }, class: 'btn btn-danger '
+.mb-3

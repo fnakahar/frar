@@ -1,2 +1,23 @@
-h1 Admin::Customers#index
-p Find me in app/views/admin/customers/index.html.slim
+.jumbotron
+  h1.display-3 顧客管理 INDEX
+  p.lead ご登録いただいたお客様情報を一覧表示しています
+
+
+.mt-3
+table.table.table-striped.table-hover.text-center
+  thead.thead-default
+    tr
+      th = Customer.human_attribute_name(:name)
+      th = Customer.human_attribute_name(:age_range)
+      th = Customer.human_attribute_name(:gender)
+      th = Customer.human_attribute_name(:created_at)
+      th
+    tbody
+      - @customer.each do |customer|
+        tr
+          td = link_to customer.name, admin_customer_path(customer)
+          td = link_to customer.age_range
+          td = link_to customer.gender
+          td = customer.created_at
+          td = link_to '編集', edit_admin_customer_path(customer), class: 'btn btn-primary float-right'
+          td = link_to '削除', admin_customer_path(customer), method: :delete, data: { confirm: "顧客名「#{customer.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
