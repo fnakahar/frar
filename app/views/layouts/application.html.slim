@@ -15,14 +15,17 @@ html
 
       .collapse.navbar-collapse.flex-column.ml-lg-0.ml-3
         ul.navbar-nav.ml-auto
-          li.nav-item= link_to '言語切り替え', "#", class: 'nav-link'
-          li.nav-item= link_to 'お問い合わせ', "#", class: 'nav-link'
-          li.nav-item= link_to '製品登録.a', product_admins_path, class: 'nav-link'
-          li.nav-item= link_to '顧客管理', admin_customers_path, class: 'nav-link'
-          li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
-          li.nav-item= link_to 'ログアウト', "#", class: 'nav-link'
+          - if current_customer
+            li.nav-item= link_to '言語切り替え', "#", class: 'nav-link'
+            li.nav-item= link_to 'お問い合わせ', "#", class: 'nav-link'
+            li.nav-item= link_to '製品登録.a', product_admins_path, class: 'nav-link'
+            li.nav-item= link_to '顧客管理', admin_customers_path, class: 'nav-link'
+            li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+          - else
+            li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
 
         ul.navbar-nav.ml-auto.flex-row.mb-2.
+
           li.nav-item= link_to 'サイトトップ', "#", class: 'nav-link'
           li.nav-item= link_to '取り扱い製品一覧', product_users_path, class: 'nav-link'
           li.nav-item= link_to 'オンラインカウンセリング予約', "#", class: 'nav-link'
@@ -46,10 +49,3 @@ html
         $(function () {
             $(".alert").fadeOut(3000);
         });
-
-
-
-
-
-
-
