@@ -7,10 +7,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-    models:
-      product: 製品
+
+#翻訳情報を書くところは一段インデント下げてください###以下の記述パターンが絶対ルールです。errorsとattributesのインデントを合わせる！！！！
+
+#    models:
+#      product: 製品
     attributes:
-#      翻訳情報を書くところは一段インデント下げてください
       product:
         product_name: 製品名
         product_subtitle: 製品サブタイトル
@@ -27,10 +29,9 @@ ja:
         product_category: 製品分類
         product_url: SPTM製品詳細URL
 
-#以下のフォーメーションを厳守
-
-      customer: 顧客
-    attributes:
+#    models:
+#      customer: 顧客
+#    attributes:
       customer:
         id: 顧客ID
         name: お名前
@@ -244,3 +245,4 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+

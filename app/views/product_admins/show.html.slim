@@ -12,8 +12,8 @@ table.table.table-striped.table-hover.mb-3
       th = Product.human_attribute_name(:id)
       td = @product.id
     tr
-       th = Product.human_attribute_name(:product_image)
-       td = image_tag @product.product_image.url
+      th = Product.human_attribute_name(:product_image)
+      td = image_tag @product.product_image.url
     tr
       th = Product.human_attribute_name(:product_name)
       td = @product.product_name
