@@ -25,14 +25,17 @@ html
             li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
 
         ul.navbar-nav.ml-auto.flex-row.mb-2.
-
-          li.nav-item= link_to 'サイトトップ', "#", class: 'nav-link'
-          li.nav-item= link_to '取り扱い製品一覧', product_users_path, class: 'nav-link'
-          li.nav-item= link_to 'オンラインカウンセリング予約', "#", class: 'nav-link'
-          li.nav-item= link_to 'チャットルーム', "#", class: 'nav-link'
-          li.nav-item= link_to 'ユーザー登録', new_admin_customer_path, class: 'nav-link'
-          li.nav-item= link_to 'FRARについて', "#", class: 'nav-link'
-
+          - if current_customer
+            li.nav-item= link_to 'サイトトップ', "#", class: 'nav-link'
+            li.nav-item= link_to '取り扱い製品一覧', product_users_path, class: 'nav-link'
+            li.nav-item= link_to 'オンラインカウンセリング予約', "#", class: 'nav-link'
+            li.nav-item= link_to 'チャットルーム', "#", class: 'nav-link'
+            li.nav-item= link_to 'FRARについて', "#", class: 'nav-link'
+          - else
+            li.nav-item= link_to 'サイトトップ', "#", class: 'nav-link'
+            li.nav-item= link_to '取り扱い製品一覧', product_users_path, class: 'nav-link'
+            li.nav-item= link_to 'ユーザー登録', new_admin_customer_path, class: 'nav-link'
+            li.nav-item= link_to 'FRARについて', "#", class: 'nav-link'
 
 
   .container-fluid

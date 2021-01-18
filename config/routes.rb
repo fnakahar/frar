@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :room_messages
+  resources :rooms
   get     '/login',   to: 'sessions#new'
   post    '/login',   to: 'sessions#create'
   delete  '/logout',  to: 'sessions#destroy'
