@@ -73,3 +73,5 @@ gem 'bootstrap'
 gem 'carrierwave'
 
 gem 'jquery-rails'
+
+gem 'simple_form'

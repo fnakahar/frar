@@ -1,0 +1,6 @@
+= form_for @room do |f|
+  .form-group
+    = f.label :name, 'チャットルーム名'
+    = f.text_field :name, class: 'form-control', id: 'customer_name'
+
+  = f.submit 'ルーム作成', class: 'btn btn-primary'
