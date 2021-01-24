@@ -1,6 +1,7 @@
 .mb-3
   = link_to new_room_path, class: 'btn btn-primary' do
     | Create a room
+
 - if @rooms.present?
   nav.nav.flex-column
     - @rooms.each do |room|

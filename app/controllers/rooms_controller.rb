@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :load_entities
 
   def index
+    # debugger
     @rooms = Room.all
   end
 

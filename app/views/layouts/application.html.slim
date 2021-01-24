@@ -5,8 +5,8 @@ html
       | FRAR
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
   body[style="padding-top:90px"]
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top[style="height: 90px;" ]
       = link_to root_path
@@ -21,6 +21,12 @@ html
             li.nav-item= link_to '製品登録.a', product_admins_path, class: 'nav-link'
             li.nav-item= link_to '顧客管理', admin_customers_path, class: 'nav-link'
             li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+            a#navbarDropdown.nav-link
+              |  <img class="avatar mr-1" src="
+              = gravatar_url(current_customer)
+              | ">
+              = current_customer.name
+
           - else
             li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
 
@@ -52,3 +58,4 @@ html
         $(function () {
             $(".alert").fadeOut(3000);
         });
+
