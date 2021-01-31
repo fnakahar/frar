@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :events
+  # collection do
+  #   post :confirm
+  # end
   resources :room_messages
   resources :rooms
   get     '/login',   to: 'sessions#new'

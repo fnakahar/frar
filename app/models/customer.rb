@@ -9,4 +9,6 @@ class Customer < ApplicationRecord
     "https://gravatar.com/avatar/#{gravatar_id}.png"
   end
 
+  has_many :events
+
 end

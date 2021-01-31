@@ -1,0 +1,53 @@
+h2.mt-5.ml-3.mr-3.border-bottom.border-info オンラインカウンセリング予約状況
+p.mt-3.ml-3 ご希望の日時の混雑状況の確認と新規予約をお取りいただけます
+
+
+table
+  thead
+    tr
+      th
+      th
+      th
+      th
+      th
+
+  = month_calendar events: @events do |date, events|
+    = date
+    div.mb-3
+    - events.each do |event|
+      div
+        = event.name
+
+  / tbody
+  /   - @events.each do |event|
+  /     tr
+  /       td = event.name
+  /       td = event.start_time
+  /       td = link_to 'Show', event
+  /       td = link_to 'Edit', edit_event_path(event)
+  /       td = link_to 'Destroy', event, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+/ = link_to 'New Event', new_event_path, class: "ml-3"
+
+
+h4.text-primary.ml-3.mb-4 ご予約フォーム
+
+= form_with model: @event, url: events_path, class: "ml-3 mr-3 mb-5", local: true do |f|
+  .form-group.w-50
+    = f.label :date, 'お日にち', class: 'control-label', id: 'date'
+    = f.date_field :date, class: 'form-control'
+  hr
+  .form-group.w-50
+    = f.label :timeslot, 'ご希望時間', class: 'control-label'
+    = f.select :timeslot, ["AM 9:00", "AM 10:00", "AM 11:00", "PM 13:00", "AM 14:00", "AM 15:00", "AM 16:00"], {}, class: 'form-control', id: 'timeslot'
+  hr
+  .form-group.w-50
+    = f.label :request, 'カウンセリングご希望内容', class: 'control-label'
+    = f.select :request, ["SPTM製品に関するご相談", "FRARでの購入に関するご相談", "その他のご相談"], {}, class: 'form-control', id: 'request'
+  hr
+  / = f.submit 'この日程内容で予約する', data: { confirm: "「#{@event.request}」からのお時間でご予約をお取りしてもよろしいですか？" }, class: 'btn btn-primary'
+javascriptを呼び出す。Tagを使う。event id をキーワードに呼び出す。javascript　確認ダイアログ
+
+  = link_to 'この日程内容で予約する', events_path(@event), method: :post, data: { confirm: "「#{@event}」様の顧客情報を削除します。よろしいですか？" }, class: 'btn btn-danger '

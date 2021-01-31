@@ -79,3 +79,7 @@ gem 'simple_form'
 gem 'redis'
 
 gem 'warden'
+
+gem 'simple_calendar', '~> 2.0'
+
+gem 'data-confirm-modal'
